@@ -1,0 +1,59 @@
+{% load static %}
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{% block title %}Описание транзакции{% endblock %}</title>
+        <style>
+            h1 { 
+                font-size: 24px !important; 
+                font-family: 'URW Gothic';
+                font-style: italic;
+                font-weight: bold;
+                position: relative; 
+                color: black; 
+                text-align: center; 
+                padding-top:  5px;
+                padding-bottom: 5px;
+                margin: 0 0 3em;
+                } 
+            h2 {
+                font-size: 20px !important; 
+                font-family: 'URW Gothic';
+                font-style: italic;
+                position: relative; 
+                color: black;
+                text-shadow: red; 
+                text-align: left; 
+                border: 2px black solid;
+            }
+            .btn {
+              display: inline-block;
+              color: white;
+              text-decoration: none;
+              padding: .5em 2em;
+              outline: none;
+              border-width: 2px 0;
+              border-style: solid none;
+              border-color: #FDBE33 #000 #D77206;
+              border-radius: 6px;
+              background: linear-gradient(#F3AE0F, #E38916) #E38916;
+              transition: 0.2s;
+              margin-left: 45%;
+            } 
+            .btn:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
+            .btn:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
+            </style>
+        <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <h1>Описание транзакции № {{t.id_transaction}}</h1>
+        <div><h2> {{t.description}} </h2></div>
+        <div>
+            <a href = "{% url 'admin:transaction_transaction_changelist' %}">
+                <button class="btn" type="submit" alt="">К списку</button>
+            </a>
+        </div>
+    </body>
+</html>
